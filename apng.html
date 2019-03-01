@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>animated png</title>
+<script>
+var url = "apng_ele.png";
+function start() {
+    setInterval(() => {
+        let imgOld = document.querySelector('#ele');
+        let imgDiv = document.querySelector('#elediv');
+				img = document.createElement('img');
+				img.src = url;
+				img.id = 'ele';
+				img.width = 480;
+				img.height = 400;
+        imgDiv.replaceChild(img, imgOld);
+        if (url == 'apng_ele.png') {
+            url = 'static_ele.png';
+        } else {
+            url = 'apng_ele.png';
+        }
+    }, 2000);
+}
+</script>
+<style>
+body {
+    background-color: black;
+    color: white;
+    font-size: 30px;
+}
+button {
+    font-size: 40px;
+}
+</style>
+</head>
+<body onload="start()">
+<div class="content">
+<button onclick="location.reload()">reload</button>
+<hr/>
+<div id="elediv">
+<img src="static_ele.png" width="480" height="400" id="ele" alt="ele" />
+</div>
+</div>
+</body>
+</html>
